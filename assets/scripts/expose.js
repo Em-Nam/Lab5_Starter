@@ -8,6 +8,7 @@ function init() {
     const LEVEL_ONE_VOLUME_LIMIT = 33;
     const LEVEL_TWO_VOLUME_LIMIT = 67;
 
+    var isParty = false;    //parameter passing in event handlers without global variables
 
     //functionality when select new horn
     var hornSelect = document.getElementById('horn-select');
@@ -23,6 +24,9 @@ function init() {
         var audio = document.querySelector('audio');
         audio.src = 'assets/audio/' + hornType + '.mp3';
         console.log(audio);
+
+        isParty = (hornType == 'party-horn');
+
     })
 
 
@@ -53,7 +57,30 @@ function init() {
         console.log(audio.volume);
     })
 
+
+
+    //functionality when play sound button
+    var playSoundBtn = document.querySelector('button');
+    const jsConfetti = new JSConfetti('canvas');
     
+
+    playSoundBtn.addEventListener('click', function(){
+        
+        console.log(playSoundBtn);
+
+        var audio = document.querySelector('audio');
+        audio.load();
+        audio.play();
+
+        // var hornType = document.querySelector('[')
+        console.log(isParty);
+        if (isParty){
+            jsConfetti.addConfetti();
+        }
+        
+
+    })
+
 
 
 }
