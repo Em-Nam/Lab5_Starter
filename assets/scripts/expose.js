@@ -38,8 +38,10 @@ function init() {
         console.log(event.target.value);
         let volumeValue = event.target.value;
         var icon = 0;
+        isParty = true;
         if (volumeValue <= 0){
             icon = 0;
+            isParty = false;
         } else if (volumeValue < LEVEL_ONE_VOLUME_LIMIT){
             icon = 1;
         } else if (volumeValue < LEVEL_TWO_VOLUME_LIMIT){
